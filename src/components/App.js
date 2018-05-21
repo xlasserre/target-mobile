@@ -1,21 +1,26 @@
+import React from 'react';
+import { Navigation } from 'react-native-navigation';
+import { Provider } from 'react-redux';
+import registerScreens from '../screens';
+import configureStore from '../store/configureStore';
 
+const store = configureStore();
+registerScreens(store, Provider);
 
-import React, { Component } from 'react';
-import {
-  Text,
-  View
-} from 'react-native';
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.startApp();
+  }
 
-
-export default class App extends Component {
-  render() {
-    return (
-      <View>
-        <Text>
-          Welcome to React Native!
-        </Text>
-      </View>
-    );
+  startApp() {
+    Navigation.startSingleScreenApp({
+      screen: {
+        screen: 'targetmobile.LoginScreen',
+        title: 'Login'
+      }
+    });
   }
 }
 
+export default App;
