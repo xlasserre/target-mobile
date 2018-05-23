@@ -9,6 +9,12 @@ import styles from './styles';
 class LoginScreen extends React.Component {
   constructor(props) {
     super(props);
+
+    this.login = this.login.bind(this);
+  }
+
+  login() {
+    // code for login to be added later
   }
 
   render() {
