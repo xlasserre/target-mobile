@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { createStore, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
