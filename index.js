@@ -1,4 +1,4 @@
-import { AppRegistry } from 'react-native';
-import App from './App';
+/* eslint-disable no-unused-vars */
+import App from './src/components/App';
 
-AppRegistry.registerComponent('TargetMobile', () => App);
+const app = new App();
