@@ -1,6 +1,8 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ImageBackground, TouchableOpacity } from 'react-native';
 
+import CustomButton from '../../components/common/CustomButton';
+import CustomInput from '../../components/common/CustomInput';
 import styles from './styles';
 
 class LoginScreen extends React.Component {
@@ -16,8 +18,33 @@ class LoginScreen extends React.Component {
 
   render() {
     return (
-      <View style={styles.color}>
-        <Text>Login</Text>
+      <View style={styles.screen}>
+        <ImageBackground
+          style={styles.backgroundImage}
+          source={require('../../assets/images/group.png')}
+        >
+          <View style={styles.titleView}>
+            <Text style={styles.appTitle}>TARGET MVD</Text>
+          </View>
+        </ImageBackground>
+        <View style={styles.formView}>
+          <View style={styles.loginView}>
+            <CustomInput inputLabel="Email" inputType="email" />
+            <CustomInput inputLabel="Password" inputType="password" />
+            <CustomButton title="SIGN IN" onPress={this.login} type="default" />
+            <Text style={styles.forgotPwd}>
+              Forgot your password?
+            </Text>
+          </View>
+          <View style={styles.signUpAndFbView}>
+            <Text style={styles.connectFB}>
+              CONNECT WITH FACEBOOK
+            </Text>
+            <TouchableOpacity style={styles.signUp}>
+              <Text style={styles.signUpText}>SIGN UP</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
       </View>
     );
   }

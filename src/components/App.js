@@ -15,7 +15,6 @@ class App {
     Navigation.startSingleScreenApp({
       screen: {
         screen: 'targetmobile.LoginScreen',
-        title: 'Login'
       }
     });
   }
