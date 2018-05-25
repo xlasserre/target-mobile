@@ -1,19 +1,31 @@
 import React from 'react';
 import { View, Text, ImageBackground, TouchableOpacity } from 'react-native';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import CustomButton from '../../components/common/CustomButton';
-import CustomInput from '../../components/common/CustomInput';
 import styles from './styles';
+import LoginForm from '../../components/LoginForm';
+import { login } from '../../actions/userActions';
 
 class LoginScreen extends React.Component {
   constructor(props) {
     super(props);
+    console.log('props: ', props);
 
-    this.login = this.login.bind(this);
+    this.signIn = this.signIn.bind(this);
   }
 
-  login() {
-    // code for login to be added later
+  signIn = (userData) => {
+    const { email, password } = userData.toJS();
+
+    const user = {
+      user: {
+        email,
+        password
+      }
+    };
+    console.log('user submitting form: ', user);
+    this.props.loginUser(user);
   }
 
   render() {
@@ -29,9 +41,7 @@ class LoginScreen extends React.Component {
         </ImageBackground>
         <View style={styles.formView}>
           <View style={styles.loginView}>
-            <CustomInput inputLabel="Email" inputType="email" />
-            <CustomInput inputLabel="Password" inputType="password" />
-            <CustomButton title="SIGN IN" onPress={this.login} type="default" />
+            <LoginForm signIn={this.signIn} />
             <Text style={styles.forgotPwd}>
               Forgot your password?
             </Text>
@@ -50,4 +60,12 @@ class LoginScreen extends React.Component {
   }
 }
 
-export default LoginScreen;
+LoginScreen.propTypes = {
+  loginUser: PropTypes.func.isRequired
+};
+
+const mapDispatchToProps = dispatch => ({
+  loginUser: user => dispatch(login(user))
+});
+
+export default connect(null, mapDispatchToProps)(LoginScreen);
