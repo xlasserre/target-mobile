@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import CustomButton from '../../components/common/CustomButton';
 import CustomInput from '../../components/common/CustomInput';
 import { validations, login } from '../../utils/constraints';
+import { black } from '../../constants/styleConstants';
 import styles from './styles';
 
 const LoginForm = ({
@@ -26,7 +27,7 @@ const LoginForm = ({
         component={CustomInput}
       />
       <CustomButton
-        title="SIGN IN" type="default"
+        title="SIGN IN" color={black}
         onPress={handleSubmit(signIn)} disabled={submitting}
       />
       {error && <Text style={styles.loginError}>{error}</Text>}

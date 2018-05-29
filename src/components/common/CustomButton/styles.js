@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 
+import { regularFontSize } from '../../../constants/styleConstants';
+
 const styles = StyleSheet.create({
 
   buttonContainer: {
@@ -16,7 +18,7 @@ const styles = StyleSheet.create({
 
   buttonText: {
     color: '#FFFFFF',
-    fontSize: 12
+    fontSize: regularFontSize
   }
 
 });

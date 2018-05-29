@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { black, red } from '../../../constants/styleConstants';
+import { black, red, regularFontSize } from '../../../constants/styleConstants';
 
 const styles = StyleSheet.create({
   inputView: {
@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   },
 
   inputLabel: {
-    fontSize: 12,
+    fontSize: regularFontSize,
     paddingBottom: 3
   },
 

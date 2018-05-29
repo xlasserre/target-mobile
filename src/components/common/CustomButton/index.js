@@ -2,14 +2,11 @@ import React from 'react';
 import { View, TouchableOpacity, Text } from 'react-native';
 import PropTypes from 'prop-types';
 
-import { red, black } from '../../../constants/styleConstants';
 import styles from './styles';
 
 const CustomButton = ({
-  type, title, onPress, disabled
+  color, title, onPress, disabled
 }) => {
-  const color = type === 'danger' ? red : black;
-
   return (
     <View style={styles.buttonContainer}>
       <TouchableOpacity
@@ -28,7 +25,7 @@ CustomButton.defaultProps = {
 };
 
 CustomButton.propTypes = {
-  type: PropTypes.string,
+  color: PropTypes.string,
   title: PropTypes.string.isRequired,
   onPress: PropTypes.func.isRequired,
   disabled: PropTypes.bool

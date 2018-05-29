@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { black } from '../../constants/styleConstants';
+import { black, regularFontSize } from '../../constants/styleConstants';
 
 const styles = StyleSheet.create({
   screen: {
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   },
 
   forgotPwd: {
-    fontSize: 12,
+    fontSize: regularFontSize,
     marginBottom: 10,
     marginTop: 10
   },
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   },
 
   signUpText: {
-    fontSize: 12
+    fontSize: regularFontSize
   }
 
 });

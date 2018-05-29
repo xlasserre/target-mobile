@@ -18,7 +18,6 @@ class LoginScreen extends React.Component {
     const user = {
       user: userData.toJS()
     };
-    console.log('user submitting form: ', user);
     return this.props.loginUser(user);
   }
 

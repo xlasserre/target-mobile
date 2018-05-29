@@ -14,8 +14,6 @@ export const login = (user) => {
   return (dispatch) => {
     return userApi.login(user)
       .then((response) => {
-        console.log('response: ', response);
-
         return authUtils.saveUserInStorage(response.data.id.toString());
       }).then(() => dispatch(loginSuccess()))
       .catch((err) => {
