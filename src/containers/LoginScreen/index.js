@@ -10,22 +10,16 @@ import { login } from '../../actions/userActions';
 class LoginScreen extends React.Component {
   constructor(props) {
     super(props);
-    console.log('props: ', props);
 
     this.signIn = this.signIn.bind(this);
   }
 
   signIn = (userData) => {
-    const { email, password } = userData.toJS();
-
     const user = {
-      user: {
-        email,
-        password
-      }
+      user: userData.toJS()
     };
     console.log('user submitting form: ', user);
-    this.props.loginUser(user);
+    return this.props.loginUser(user);
   }
 
   render() {
@@ -65,7 +59,9 @@ LoginScreen.propTypes = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  loginUser: user => dispatch(login(user))
+  loginUser: (user) => {
+    return dispatch(login(user));
+  }
 });
 
 export default connect(null, mapDispatchToProps)(LoginScreen);

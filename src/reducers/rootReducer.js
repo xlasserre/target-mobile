@@ -7,5 +7,5 @@ const rootReducer = combineReducers({
   users,
   form
 });
-console.log('rootReducer: ', rootReducer);
+
 export default rootReducer;

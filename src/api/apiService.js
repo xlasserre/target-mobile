@@ -3,7 +3,7 @@ import { API_URL } from '../constants/constants';
 const handleErrors = (response) => {
   return new Promise((resolve, reject) => {
     if (!response) {
-      reject({ message: 'No response returned from fetch' });
+      reject({ error: 'No response returned from fetch' });
       return;
     }
 
@@ -14,21 +14,21 @@ const handleErrors = (response) => {
 
     response.json()
       .then((json) => {
-        const error = json || { message: response.statusText };
+        const error = json || { error: response.statusText };
         reject(error);
-      }).catch(() => reject({ message: 'Response not JSON' }));
+      }).catch(() => reject({ error: 'Response not JSON' }));
   });
 };
 
 class Api {
-  static async makeRequest(uri, requestData = {}) {
+  static makeRequest(uri, requestData = {}) {
     const url = API_URL + uri;
 
     return new Promise((resolve, reject) => {
       fetch(url, requestData)
         .then(handleErrors)
-        .then((response) => { console.log('response', response); resolve(response); })
-        .catch((err) => { console.log('err', err); reject(err); });
+        .then((response) => { resolve(response.json()); })
+        .catch((err) => { reject(err); });
     });
   }
 

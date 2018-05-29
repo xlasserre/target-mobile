@@ -1,4 +1,4 @@
-import { SubmissionError } from 'redux-form';
+import { SubmissionError } from 'redux-form/immutable';
 
 import userApi from '../api/userApi';
 import authUtils from '../utils/authUtils';
@@ -12,15 +12,24 @@ export const loginSuccess = () => {
 
 export const login = (user) => {
   return (dispatch) => {
-    userApi.login(user)
+    return userApi.login(user)
       .then((response) => {
         console.log('response: ', response);
-        return authUtils.saveUserInStorage(response.user.id);
+
+        return authUtils.saveUserInStorage(response.data.id.toString());
       }).then(() => dispatch(loginSuccess()))
-      .catch((error) => {
-        throw new SubmissionError({
-          _error: error,
-        });
+      .catch((err) => {
+        const { errors } = err;
+
+        if (errors && errors.length === 1) {
+          throw new SubmissionError({
+            _error: errors[0],
+          });
+        } else {
+          throw new SubmissionError({
+            _error: 'Error logging in',
+          });
+        }
       });
   };
 };

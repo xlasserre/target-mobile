@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { black } from '../../../constants/styleConstants';
+import { black, red } from '../../../constants/styleConstants';
 
 const styles = StyleSheet.create({
   inputView: {
@@ -20,6 +20,12 @@ const styles = StyleSheet.create({
     width: 188,
     height: 37,
     margin: 5
+  },
+
+  inputError: {
+    color: red,
+    fontSize: 10,
+    paddingLeft: 5
   }
 });
 

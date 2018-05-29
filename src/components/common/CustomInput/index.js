@@ -5,7 +5,8 @@ import PropTypes from 'prop-types';
 import styles from './styles';
 
 const CustomInput = ({
-  input: { onChange }, inputLabel, inputType, placeholder
+  input: { onChange }, inputLabel, inputType, placeholder,
+  meta: { touched, error }
 }) => {
   const uppercaseLabel = inputLabel.toUpperCase();
   let keyboardType = 'default';
@@ -15,7 +16,7 @@ const CustomInput = ({
     case 'email':
       keyboardType = 'email-address';
       break;
-    
+
     case 'password':
       secureText = true;
       break;
@@ -36,7 +37,9 @@ const CustomInput = ({
           style={styles.inputBox}
           onChangeText={onChange}
           secureTextEntry={secureText}
+          autoCapitalize="none"
         />
+        {touched && (error && <Text style={styles.inputError}>{error}</Text>) }
       </View>
     </View>
   );
@@ -46,7 +49,8 @@ CustomInput.propTypes = {
   inputLabel: PropTypes.string.isRequired,
   inputType: PropTypes.string,
   placeholder: PropTypes.string,
-  input: PropTypes.object.isRequired
+  input: PropTypes.object.isRequired,
+  meta: PropTypes.object.isRequired
 };
 
 export default CustomInput;
