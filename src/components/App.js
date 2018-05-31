@@ -25,8 +25,8 @@ class App {
       .then((result) => {
         authenticated = result;
 
-        const newAppRoot = authenticated !== null ? 'main' : 'login';
-        if (newAppRoot != this.appRoot) {
+        const newAppRoot = authenticated ? 'main' : 'login';
+        if (newAppRoot !== this.appRoot) {
           this.appRoot = newAppRoot;
           this.startApp();
         }

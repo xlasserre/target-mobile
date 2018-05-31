@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, TextInput } from 'react-native';
-import PropTypes from 'prop-types';
+import { string, object } from 'prop-types';
 
 import styles from './styles';
 
@@ -46,11 +46,11 @@ const CustomInput = ({
 };
 
 CustomInput.propTypes = {
-  inputLabel: PropTypes.string.isRequired,
-  inputType: PropTypes.string,
-  placeholder: PropTypes.string,
-  input: PropTypes.object.isRequired,
-  meta: PropTypes.object.isRequired
+  inputLabel: string.isRequired,
+  inputType: string,
+  placeholder: string,
+  input: object.isRequired,
+  meta: object.isRequired
 };
 
 export default CustomInput;

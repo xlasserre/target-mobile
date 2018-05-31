@@ -1,7 +1,6 @@
 import * as types from './actionTypes';
 
-export const appInitialized = () => {
-  return {
-    type: types.APP_INIT
-  };
-};
+export const appInitialized = () => ({
+  type: types.APP_INIT
+});
+

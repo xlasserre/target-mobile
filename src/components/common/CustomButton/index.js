@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, TouchableOpacity, Text } from 'react-native';
-import PropTypes from 'prop-types';
+import { string, func, bool } from 'prop-types';
 
 import styles from './styles';
 
@@ -25,10 +25,10 @@ CustomButton.defaultProps = {
 };
 
 CustomButton.propTypes = {
-  color: PropTypes.string,
-  title: PropTypes.string.isRequired,
-  onPress: PropTypes.func.isRequired,
-  disabled: PropTypes.bool
+  color: string,
+  title: string.isRequired,
+  onPress: func.isRequired,
+  disabled: bool
 };
 
 export default CustomButton;

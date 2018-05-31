@@ -5,8 +5,7 @@ import { black, regularFontSize } from '../../constants/styleConstants';
 const styles = StyleSheet.create({
   screen: {
     alignItems: 'center',
-    flex: 1,
-    flexDirection: 'column'
+    flex: 1
   },
 
   backgroundImage: {
@@ -20,19 +19,13 @@ const styles = StyleSheet.create({
     flex: 1
   },
 
-  titleView: {
-    flex: 1,
-    justifyContent: 'center'
+  formView: {
+    flex: 2
   },
 
   appTitle: {
     fontSize: 20,
     fontWeight: '800'
-  },
-
-  formView: {
-    alignItems: 'center',
-    flex: 2
   },
 
   loginView: {
@@ -68,7 +61,6 @@ const styles = StyleSheet.create({
   signUpText: {
     fontSize: regularFontSize
   }
-
 });
 
 export default styles;
