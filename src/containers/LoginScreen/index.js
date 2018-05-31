@@ -28,7 +28,7 @@ class LoginScreen extends React.Component {
         <View style={styles.screen}>
           <ImageBackground
             style={styles.backgroundImage}
-            source={require('../../assets/images/group.png')}
+            source={require('../../assets/images/groupTop.png')}
           >
             <View>
               <Text style={styles.appTitle}>TARGET MVD</Text>

@@ -1,7 +1,7 @@
 import { API_URL } from '../constants/constants';
 
-const handleErrors = (response) => {
-  return new Promise((resolve, reject) => {
+const handleErrors = response =>
+  new Promise((resolve, reject) => {
     if (!response) {
       reject({ error: 'No response returned from fetch' });
       return;
@@ -18,7 +18,6 @@ const handleErrors = (response) => {
         reject(error);
       }).catch(() => reject({ error: 'Response not JSON' }));
   });
-};
 
 class Api {
   static makeRequest(uri, requestData = {}) {
