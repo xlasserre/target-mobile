@@ -32,8 +32,10 @@ const ProfileForm = ({
       component={CustomInput}
     />
     <CustomButton
-      title="SAVE CHANGES" color={black}
-      onPress={handleSubmit(editProfile)} disabled={submitting}
+      title="SAVE CHANGES"
+      color={black}
+      onPress={handleSubmit(editProfile)}
+      disabled={submitting}
       customStyle={styles.changeButton}
     />
     { error && <Text>{error}</Text>}

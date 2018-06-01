@@ -8,21 +8,21 @@ import styles from './styles';
 class MainScreen extends React.Component {
   static navigatorStyle = navigatorStyles;
 
-  constructor(props) {
-    super(props);
-    props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+  constructor() {
+    super();
+    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
 
   onNavigatorEvent(event) {
-    if (event.type == 'NavBarButtonPress') {
-      if (event.id == 'profile') {
+    if (event.type === 'NavBarButtonPress') {
+      if (event.id === 'profile') {
         this.props.navigator.push({
           screen: 'targetmobile.ProfileScreen',
           title: 'Profile',
           backButtonTitle: ''
         });
       }
-      if (event.id == 'chat') {
+      if (event.id === 'chat') {
         // do nothing for now
       }
     }
@@ -48,7 +48,7 @@ class MainScreen extends React.Component {
 }
 
 MainScreen.propTypes = {
-  navigator: object
+  navigator: object.isRequired
 };
 
 export default MainScreen;
