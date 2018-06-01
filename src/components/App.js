@@ -46,7 +46,27 @@ class App {
       case 'main':
         Navigation.startSingleScreenApp({
           screen: {
-            screen: 'targetmobile.MainScreen',
+            label: 'Target Points',
+            screen: 'targetmobile.TargetPointsScreen',
+            title: 'Target Points',
+            navigatorButtons: {
+              leftButtons: [
+                {
+                  title: 'Profile',
+                  icon: require('../assets/images/profileIcon.png'),
+                  iconInsets: { bottom: -11 },
+                  id: 'profile',
+                }
+              ],
+              rightButtons: [
+                {
+                  id: 'chat',
+                  title: 'Chat',
+                  icon: require('../assets/images/chatIcon.png'),
+                  iconInsets: { bottom: -11 },
+                }
+              ]
+            }
           }
         });
         break;
