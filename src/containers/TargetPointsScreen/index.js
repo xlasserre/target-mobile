@@ -5,7 +5,7 @@ import { object } from 'prop-types';
 import navigatorStyles from '../../components/common/Navigator/styles';
 import styles from './styles';
 
-class MainScreen extends React.Component {
+class TargetPointscreen extends React.Component {
   static navigatorStyle = navigatorStyles;
 
   constructor(props) {
@@ -14,15 +14,15 @@ class MainScreen extends React.Component {
   }
 
   onNavigatorEvent(event) {
-    if (event.type == 'NavBarButtonPress') {
-      if (event.id == 'profile') {
+    if (event.type === 'NavBarButtonPress') {
+      if (event.id === 'profile') {
         this.props.navigator.push({
           screen: 'targetmobile.ProfileScreen',
           title: 'Profile',
           backButtonTitle: ''
         });
       }
-      if (event.id == 'chat') {
+      if (event.id === 'chat') {
         // do nothing for now
       }
     }
@@ -47,8 +47,8 @@ class MainScreen extends React.Component {
   }
 }
 
-MainScreen.propTypes = {
-  navigator: object
+TargetPointscreen.propTypes = {
+  navigator: object.isRequired
 };
 
-export default MainScreen;
+export default TargetPointscreen;

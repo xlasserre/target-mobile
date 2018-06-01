@@ -1,7 +1,10 @@
 import React from 'react';
 import {
-  View, TouchableOpacity,
-  Image, ImageBackground, Text
+  View,
+  TouchableOpacity,
+  Image,
+  ImageBackground,
+  Text
 } from 'react-native';
 import { connect } from 'react-redux';
 import { func } from 'prop-types';
@@ -11,8 +14,8 @@ import styles from './styles';
 import { logout, editProfile } from '../../actions/userActions';
 
 class ProfileScreen extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.editUserProfile = this.editUserProfile.bind(this);
   }
@@ -44,7 +47,7 @@ class ProfileScreen extends React.Component {
 }
 
 ProfileScreen.propTypes = {
-  userLogout: func
+  userLogout: func.isRequired
 };
 
 const mapDispatchToProps = dispatch => ({

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { reduxForm, Field } from 'redux-form/immutable';
-import PropTypes from 'prop-types';
+import { func, string, bool } from 'prop-types';
 
 import CustomInput from '../common/CustomInput';
 import CustomButton from '../common/CustomButton';
@@ -32,8 +32,10 @@ const ProfileForm = ({
       component={CustomInput}
     />
     <CustomButton
-      title="SAVE CHANGES" color={black}
-      onPress={handleSubmit(editProfile)} disabled={submitting}
+      title="SAVE CHANGES"
+      color={black}
+      onPress={handleSubmit(editProfile)}
+      disabled={submitting}
       customStyle={styles.changeButton}
     />
     { error && <Text>{error}</Text>}
@@ -41,10 +43,10 @@ const ProfileForm = ({
 );
 
 ProfileForm.propTypes = {
-  handleSubmit: PropTypes.func.isRequired,
-  editProfile: PropTypes.func.isRequired,
-  error: PropTypes.string,
-  submitting: PropTypes.bool
+  handleSubmit: func.isRequired,
+  editProfile: func.isRequired,
+  error: string,
+  submitting: bool
 };
 
 export default reduxForm({

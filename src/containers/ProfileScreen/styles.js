@@ -4,7 +4,6 @@ const styles = StyleSheet.create({
   screen: {
     alignItems: 'stretch',
     flex: 1,
-    flexDirection: 'column',
     width: '100%'
   },
 
@@ -36,7 +35,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     fontWeight: 'bold'
   }
-
 });
 
 export default styles;
