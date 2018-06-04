@@ -26,8 +26,10 @@ const LoginForm = ({
       component={CustomInput}
     />
     <CustomButton
-      title="SIGN IN" color={black}
-      onPress={handleSubmit(signIn)} disabled={submitting}
+      title="SIGN IN"
+      color={black}
+      onPress={handleSubmit(signIn)}
+      disabled={submitting}
     />
     {error && <Text style={styles.loginError}>{error}</Text>}
   </View>

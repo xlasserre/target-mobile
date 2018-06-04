@@ -19,13 +19,15 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
     width: 188,
     height: 37,
-    margin: 5
+    margin: 5,
+    alignSelf: 'center'
   },
 
   inputError: {
     color: red,
     fontSize: 10,
-    paddingLeft: 5
+    paddingLeft: 5,
+    alignSelf: 'center'
   }
 });
 

@@ -5,12 +5,12 @@ import { object } from 'prop-types';
 import navigatorStyles from '../../components/common/Navigator/styles';
 import styles from './styles';
 
-class MainScreen extends React.Component {
+class TargetPointsScreen extends React.Component {
   static navigatorStyle = navigatorStyles;
 
-  constructor() {
-    super();
-    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+  constructor(props) {
+    super(props);
+    props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
 
   onNavigatorEvent(event) {
@@ -47,8 +47,8 @@ class MainScreen extends React.Component {
   }
 }
 
-MainScreen.propTypes = {
+TargetPointsScreen.propTypes = {
   navigator: object.isRequired
 };
 
-export default MainScreen;
+export default TargetPointsScreen;

@@ -1,3 +1,5 @@
+import humps from 'humps';
+
 import { API_URL } from '../constants/constants';
 
 const handleErrors = response =>
@@ -26,19 +28,21 @@ class Api {
     return new Promise((resolve, reject) => {
       fetch(url, requestData)
         .then(handleErrors)
-        .then((response) => { resolve(response.json()); })
+        .then(response => resolve(response.json()))
         .catch((err) => { reject(err); });
     });
   }
 
   static post(uri, data) {
+    const decamelizeData = humps.decamelizeKeys(data);
+
     const requestData = {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',
         accept: 'application/json'
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(decamelizeData)
     };
     return this.makeRequest(uri, requestData);
   }
