@@ -7,6 +7,10 @@ export const loginSuccess = () => ({
   type: types.LOGIN_SUCCESS
 });
 
+export const logoutSuccess = () => ({
+  type: types.LOGOUT_SUCCESS
+});
+
 export const login = user => dispatch =>
   userApi.login(user)
     .then(response => authUtils.saveUserInStorage(response.data.id.toString()))
@@ -19,3 +23,8 @@ export const login = user => dispatch =>
       }
     });
 
+export const logout = () => dispatch =>
+  authUtils.removeUserFromStorage()
+    .then(() => {
+      dispatch(logoutSuccess());
+    });
