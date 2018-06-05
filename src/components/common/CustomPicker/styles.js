@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { regularFontSize, black } from '../../../constants/styleConstants';
+import { regularFontSize, black, gray, white } from '../../../constants/styleConstants';
 
 const styles = StyleSheet.create({
   label: {
@@ -24,10 +24,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingBottom: 12,
     borderWidth: 1,
-    borderColor: 'gray',
+    borderColor: gray,
     borderRadius: 4,
-    backgroundColor: 'white',
-    color: 'black',
+    backgroundColor: white,
+    color: black,
   }
 });
 

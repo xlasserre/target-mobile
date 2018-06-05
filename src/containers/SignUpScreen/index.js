@@ -15,19 +15,19 @@ import { signUp } from '../../actions/userActions';
 import styles from './styles';
 
 class SignUpScreen extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.signUp = this.signUp.bind(this);
     this.navigateToLogin = this.navigateToLogin.bind(this);
   }
 
   signUp(userData) {
-    const jsUser = userData.toJS();
-    jsUser.gender = jsUser.gender.toLowerCase();
-    const user = {
-      user: jsUser
+    const user = userData.toJS();
+    user.gender = user.gender.toLowerCase();
+    const userToSave = {
+      user
     };
-    this.props.userSignUp(user);
+    this.props.userSignUp(userToSave);
   }
 
   navigateToLogin() {
@@ -44,9 +44,7 @@ class SignUpScreen extends React.Component {
           <ImageBackground source={require('../../assets/images/groupTop.png')} style={styles.backImage}>
             <View style={styles.content}>
               <Text style={styles.title}>TARGET MVD</Text>
-              <View>
-                <SignUpForm signUp={this.signUp} />
-              </View>
+              <SignUpForm signUp={this.signUp} />
               <TouchableOpacity style={styles.signUp} onPress={this.navigateToLogin}>
                 <Text style={styles.signUpText}>SIGN IN</Text>
               </TouchableOpacity>
