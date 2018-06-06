@@ -11,6 +11,10 @@ export const logoutSuccess = () => ({
   type: types.LOGOUT_SUCCESS
 });
 
+export const signUpSuccess = () => ({
+  type: types.SIGNUP_SUCCESS
+});
+
 export const login = user => dispatch =>
   userApi.login(user)
     .then(response => authUtils.saveUserInStorage(response.data.id.toString()))
@@ -27,4 +31,16 @@ export const logout = () => dispatch =>
   authUtils.removeUserFromStorage()
     .then(() => {
       dispatch(logoutSuccess());
+    });
+
+export const signUp = user => dispatch =>
+  userApi.signUp(user)
+    .then(response => authUtils.saveUserInStorage(response.id.toString()))
+    .then(() => dispatch(signUpSuccess()))
+    .catch(({ errors }) => {
+      if (errors && errors.length === 1) {
+        formUtils.throwGeneralSubmissionError(errors[0]);
+      } else {
+        formUtils.throwGeneralSubmissionError('Error logging in');
+      }
     });

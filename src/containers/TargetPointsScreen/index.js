@@ -5,7 +5,7 @@ import { object } from 'prop-types';
 import navigatorStyles from '../../components/common/Navigator/styles';
 import styles from './styles';
 
-class TargetPointscreen extends React.Component {
+class TargetPointsScreen extends React.Component {
   static navigatorStyle = navigatorStyles;
 
   constructor(props) {
@@ -47,8 +47,8 @@ class TargetPointscreen extends React.Component {
   }
 }
 
-TargetPointscreen.propTypes = {
+TargetPointsScreen.propTypes = {
   navigator: object.isRequired
 };
 
-export default TargetPointscreen;
+export default TargetPointsScreen;

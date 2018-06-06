@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, ImageBackground, TouchableOpacity } from 'react-native';
 import { KeyboardAwareView } from 'react-native-keyboard-aware-view';
 import { connect } from 'react-redux';
-import { func } from 'prop-types';
+import { func, object } from 'prop-types';
 
 import styles from './styles';
 import LoginForm from '../../components/LoginForm';
@@ -13,6 +13,7 @@ class LoginScreen extends React.Component {
     super(props);
 
     this.signIn = this.signIn.bind(this);
+    this.navigateToSignup = this.navigateToSignup.bind(this);
   }
 
   signIn = (userData) => {
@@ -20,6 +21,12 @@ class LoginScreen extends React.Component {
       user: userData.toJS()
     };
     return this.props.loginUser(user);
+  }
+
+  navigateToSignup() {
+    this.props.navigator.push({
+      screen: 'targetmobile.SignUpScreen'
+    });
   }
 
   render() {
@@ -45,7 +52,7 @@ class LoginScreen extends React.Component {
               <Text style={styles.connectFB}>
                 CONNECT WITH FACEBOOK
               </Text>
-              <TouchableOpacity style={styles.signUp}>
+              <TouchableOpacity style={styles.signUp} onPress={this.navigateToSignup}>
                 <Text style={styles.signUpText}>SIGN UP</Text>
               </TouchableOpacity>
             </View>
@@ -57,7 +64,8 @@ class LoginScreen extends React.Component {
 }
 
 LoginScreen.propTypes = {
-  loginUser: func.isRequired
+  loginUser: func.isRequired,
+  navigator: object.isRequired
 };
 
 const mapDispatchToProps = dispatch => ({
